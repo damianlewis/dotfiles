@@ -54,6 +54,12 @@ if [[ ! -d $HOME/.nvm ]]; then
   ) && \. "$NVM_DIR/nvm.sh"
 fi
 
+# Install Node
+if [[ ! $(command -v node) ]]; then
+  echo 'Installing latest version of Node'
+  nvm install latest
+fi
+
 # Install PHP extensions for each installed version of PHP
 php_versions=($(brew list | grep php))
 php_extensions=(
