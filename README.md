@@ -4,7 +4,13 @@ This repository helps set up a fresh macOS installation.
 
 ### Before re-installing macOS
 
-Backup your application settings using [Mackup](https://github.com/lra/mackup) by running `mackup backup`?
+Go through the checklist below to make sure you didn't forget anything before you wipe your hard drive.
+
+- Did you commit and push any changes/branches to your git repositories?
+- Did you remember to save all important documents from non-iCloud directories?
+- Did you save all of your work from apps which aren't synced through iCloud?
+- Did you remember to export important data from your local database?
+- Did you update [mackup](https://github.com/lra/mackup) to the latest version and ran `mackup backup`?
 
 ### Installing macOS cleanly
 
@@ -51,7 +57,7 @@ Once all the above is complete follow the instructions below to setup a new Mac.
 
 ## First time installation
 
-When installing these dotfiles for the first time you'll need to backup all of your settings with Mackup. Install [Mackup](https://github.com/lra/mackup) and backup your settings with the commands below. Settings will be synced to iCloud so you can use them to sync between computers and reinstall them when reinstalling your Mac. Make sure your `.zshrc` file is symlinked from your dotfiles repo to your home directory. 
+When installing these dotfiles for the first time you'll need to backup all of your settings with Mackup. Install Mackup and backup your settings with the commands below. Settings will be synced to iCloud so you can use them to sync between computers and reinstall them when reinstalling your Mac. Make sure your `.zshrc` file is symlinked from your dotfiles repo to your home directory. 
 
 ```zsh
 brew install mackup
