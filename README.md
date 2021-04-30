@@ -1,81 +1,83 @@
-<p align="center"><img src="art/banner-2x.png"></p>
+# Damian's Dotfiles
 
-## Introduction
+This repository helps set up a fresh macOS installation.
 
-This repository serves as my way to help me setup and maintain my Mac. It takes the effort out of installing everything manually. Everything needed to install my preferred setup of macOS is detailed in this readme. Feel free to explore, learn and copy parts for your own dotfiles. Enjoy!
+### Before re-installing macOS
 
-📖 - [Read the blog post](https://driesvints.com/blog/getting-started-with-dotfiles)  
-📺 - [Watch the screencast on Laracasts](https://laracasts.com/series/guest-spotlight/episodes/1)  
-💡 - [Learn how to build your own dotfiles](https://github.com/driesvints/dotfiles#your-own-dotfiles)
-
-## A Fresh macOS Setup
-
-These instructions are for when you've already set up your dotfiles. If you want to get started with your own dotfiles you can [find instructions below](#your-own-dotfiles).
-
-### Before you re-install
-
-First, go through the checklist below to make sure you didn't forget anything before you wipe your hard drive.
-
-- Did you commit and push any changes/branches to your git repositories?
-- Did you remember to save all important documents from non-iCloud directories?
-- Did you save all of your work from apps which aren't synced through iCloud?
-- Did you remember to export important data from your local database?
-- Did you update [mackup](https://github.com/lra/mackup) to the latest version and ran `mackup backup`?
+Backup your application settings using [Mackup](https://github.com/lra/mackup) by running `mackup backup`?
 
 ### Installing macOS cleanly
 
-After going to our checklist above and making sure you backed everything up, we're going to cleanly install macOS with the latest release. Follow [this article](https://www.imore.com/how-do-clean-install-macos) to cleanly install the latest macOS version.
+After going through the checklist above, cleanly install macOS with the latest release. Follow [this article](https://www.imore.com/how-do-clean-install-macos) and [this article](https://www.macrumors.com/how-to/reinstall-macos-m1-apple-silicon-macs/) to cleanly install the latest macOS version. There's also [this video](https://www.youtube.com/watch?v=lBiUSnrYyFM) about reinstalling macOS on M1 Macs.
 
 ### Setting up your Mac
 
-If you did all of the above you may now follow these install instructions to setup a new Mac.
+Once all the above is complete follow the instructions below to setup a new Mac.
 
-1. Update macOS to the latest version with the App Store
-2. [Generate a new public and private SSH key](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) by running:
+1. Check Software Update and update macOS to the latest version
+2. Sign into the Mac App Store, so that mas can download apps
+3. Make sure iCloud Drive is enabled, so that Mackup can restore settings
+4. Generate a new SSH key and add it to ssh-agent:
 
    ```zsh
-   curl https://raw.githubusercontent.com/driesvints/dotfiles/HEAD/ssh.sh | sh -s "<your-email-address>"
+   # Generate a new SSH key
+   ssh-keygen -t ed25519
+
+   # Add the SSH key to ssh-agent
+   eval "$(ssh-agent -s)"
+   ssh-add -K ~/.ssh/id_ed25519
    ```
 
-3. Clone this repo to `~/.dotfiles` with:
+5. Add SSH key to GitHub account
+
+   ```zsh
+   cat ~/.ed255519.pub | pbcopy
+   ```
+
+6. Install Command Line Developer Tools, required before running git command
 
     ```zsh
-    git clone git@github.com:driesvints/dotfiles.git ~/.dotfiles
+    xcode-select --install
     ```
 
-4. Run `~/.dotfiles/install.sh` to start the installation
-5. After mackup is synced with your cloud storage, restore preferences by running `mackup restore`
-6. Restart your computer to finalize the process
+7. Clone this repo to `~/.dotfiles` with:
 
-Your Mac is now ready to use!
+    ```zsh
+    git clone git@github.com:damianlewis/dotfiles.git ~/.dotfiles
+    ```
 
-> Note: you can use a different location than `~/.dotfiles` if you want. Just make sure you also update the reference in the [`.zshrc`](./.zshrc#L2) file.
+8. Run `~/.dotfiles/install.sh` to start the installation
+9. Restart your computer
 
-## Your Own Dotfiles
+## First time installation
 
-**Please note that the instructions below assume you already have set up Oh My Zsh so make sure to first [install Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh#getting-started) before you continue.**
-
-If you want to start with your own dotfiles from this setup, it's pretty easy to do so. First of all you'll need to fork this repo. After that you can tweak it the way you want.
-
-Go through the [`.macos`](./.macos) file and adjust the settings to your liking. You can find much more settings at [the original script by Mathias Bynens](https://github.com/mathiasbynens/dotfiles/blob/master/.macos) and [Kevin Suttle's macOS Defaults project](https://github.com/kevinSuttle/MacOS-Defaults).
-
-Check out the [`Brewfile`](./Brewfile) file and adjust the apps you want to install for your machine. Use [their search page](https://caskroom.github.io/search) to check if the app you want to install is available.
-
-Check out the [`aliases.zsh`](./aliases.zsh) file and add your own aliases. If you need to tweak your `$PATH` check out the [`path.zsh`](./path.zsh) file. These files get loaded in because the `$ZSH_CUSTOM` setting points to the `.dotfiles` directory. You can adjust the [`.zshrc`](./.zshrc) file to your liking to tweak your Oh My Zsh setup. More info about how to customize Oh My Zsh can be found [here](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization).
-
-When installing these dotfiles for the first time you'll need to backup all of your settings with Mackup. Install Mackup and backup your settings with the commands below. Your settings will be synced to iCloud so you can use them to sync between computers and reinstall them when reinstalling your Mac. If you want to save your settings to a different directory or different storage than iCloud, [checkout the documentation](https://github.com/lra/mackup/blob/master/doc/README.md#storage). Also make sure your `.zshrc` file is symlinked from your dotfiles repo to your home directory. 
+When installing these dotfiles for the first time you'll need to backup all of your settings with Mackup. Install [Mackup](https://github.com/lra/mackup) and backup your settings with the commands below. Settings will be synced to iCloud so you can use them to sync between computers and reinstall them when reinstalling your Mac. Make sure your `.zshrc` file is symlinked from your dotfiles repo to your home directory. 
 
 ```zsh
 brew install mackup
 mackup backup
 ```
 
-You can tweak the shell theme, the Oh My Zsh settings and much more. Go through the files in this repo and tweak everything to your liking.
+### Initial configurations
 
-Enjoy your own Dotfiles!
+Configure SSH before using Mackup backup for the first time, these settings will then be included with the initial backup.
 
-## Thanks To...
+```zsh
+echo 'Host *\n\tAddKeysToAgent yes\n\tUseKeychain yes' > ~/.ssh/config
+```
 
-I first got the idea for starting this project by visiting the [GitHub does dotfiles](https://dotfiles.github.io/) project. Both [Zach Holman](https://github.com/holman/dotfiles) and [Mathias Bynens](https://github.com/mathiasbynens/dotfiles) were great sources of inspiration. [Sourabh Bajaj](https://twitter.com/sb2nov/)'s [Mac OS X Setup Guide](http://sourabhbajaj.com/mac-setup/) proved to be invaluable. Thanks to [@subnixr](https://github.com/subnixr) for [his awesome Zsh theme](https://github.com/subnixr/minimal)! And lastly, I'd like to thank [Emma Fabre](https://twitter.com/anahkiasen) for [her excellent presentation on Homebrew](https://speakerdeck.com/anahkiasen/a-storm-homebrewin) which made me migrate a lot to a [`Brewfile`](./Brewfile) and [Mackup](https://github.com/lra/mackup).
+## Additional configurations
 
-In general, I'd like to thank every single one who open-sources their dotfiles for their effort to contribute something to the open-source community.
+I'm not using Mackup to backup settings with senstive data, so they need to be configured manually.
+
+1. Configure the StyleCI CLI tool with [your API key](https://gitlab.styleci.io/profile)
+
+    ```zsh
+    styleci config auth.github YOUR-API-KEY-GOES-HERE
+    ```
+
+2. Configure the AWS CLI tool
+
+    ```zsh
+    aws configure
+    ```
