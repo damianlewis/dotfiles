@@ -1,59 +1,64 @@
 # Taps
 tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
-tap 'homebrew/services'
+# tap 'homebrew/cask-versions'
+tap 'homebrew/bundle'
 
 # Binaries
 brew 'awscli'
 brew 'mackup'
 brew 'mas' # Mac App Store manager
-brew 'pkg-config' # Required for imagick build
+# brew 'pkg-config' # Required for imagick build
+
+# Spatie Medialibrary
+# brew 'jpegoptim'
+# brew 'optipng'
+# brew 'pngquant'
+# brew 'svgo'
+# brew 'gifsicle'
 
 # Development
-brew 'composer'
-brew 'imagemagick'
-brew 'mysql'
-brew 'nginx'
-brew 'node'
-brew 'php'
-brew 'php@7.4'
-#brew 'php@7.2'
-brew 'redis'
-brew 'svgo'
+# brew 'composer'
+# brew 'imagemagick'
+# brew 'mysql'
+# brew 'nginx'
+# brew 'node'
+# brew 'php'
+# brew 'php@7.4'
+# brew 'php@7.2'
+# brew 'redis'
+# brew 'yarn'
 
 # Apps
 cask '1password'
-#cask '1password-cli'
-#cask 'adobe-creative-cloud'
-cask 'alfred'
-cask 'docker'
+cask 'adobe-creative-cloud'
+cask 'arc'
+cask 'discord'
+# cask 'docker'
 cask 'firefox'
 cask 'github'
 cask 'google-chrome'
-cask 'imageoptim'
-cask 'iterm2'
+cask 'herd'
+# cask 'imageoptim'
+# cask 'iterm2'
 cask 'jetbrains-toolbox'
-#cask 'logitech-options'
-#cask 'microsoft-edge'
+# cask 'logitech-options'
+cask 'microsoft-edge'
 cask 'microsoft-teams'
-#cask 'mysqlworkbench'
-cask 'sequel-ace'
-#cask 'setapp'
-#cask 'sketch'
-#cask 'slack'
+cask 'notion'
+cask 'opera'
+cask 'postman'
+cask 'raycast'
+cask 'setapp'
+cask 'sketch'
 cask 'spotify'
-#cask 'sublime-text'
-#cask 'tableplus'
-#cask 'the-unarchiver'
 cask 'tinkerwell'
-#cask 'trello'
-cask 'visual-studio-code'
+# cask 'visual-studio-code'
+cask 'warp'
 
 # Fonts
 cask 'font-fira-code-nerd-font'
 
 # Mac App Store
 mas 'Moom', id: 419330170
-mas 'Numbers', id: 409203825
-mas 'Pages', id: 409201541
-#mas 'Spark', id: 1176895641
+# mas 'Spark', id: 1176895641

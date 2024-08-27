@@ -1,0 +1,51 @@
+#!/bin/bash
+
+echo "Setting up local project..."
+
+REPOSITORY=$1
+DIRECTORY="./$2"
+DB_DATABASE=$3
+DB_PORT=$4
+
+SITES="$HOME/Sites"
+
+shopt -s nocasematch
+if [[ $PWD != "$SITES" && $PWD != "$SITES"/* ]]; then
+  echo "You can only setup projects in the $HOME/Sites directory or a subdirectory of it."
+  exit 1
+fi
+shopt -u nocasematch
+
+if [[ -z $REPOSITORY && -z $DIRECTORY ]]; then
+  echo "Please provide both a repository and target directory."
+  exit 1
+fi
+
+if [[ -z $DB_DATABASE ]]; then
+  echo "Please provide the name of the database."
+  exit 1
+fi
+
+if [[ -z $DB_PORT ]]; then
+  DB_PORT=3306
+fi
+
+git clone "$REPOSITORY" "$DIRECTORY"
+cd "$DIRECTORY" || exit 1
+
+cp .env.example .env
+sed -i '' 's/APP_DEBUG=.*/APP_DEBUG=true/' .env
+sed -i '' 's/DB_HOST=.*/DB_HOST=127.0.0.1/' .env
+sed -i '' "s/DB_PORT=.*/DB_PORT=$DB_PORT/" .env
+sed -i '' "s/DB_DATABASE=.*/DB_DATABASE=$DATABASE/" .env
+sed -i '' 's/DB_USERNAME=.*/DB_USERNAME=root/' .env
+sed -i '' 's/DB_PASSWORD=.*/DB_PASSWORD=/' .env
+
+composer install
+php artisan key:generate
+php artisan migrate:fresh --seed
+
+npm install
+npm run build
+
+open -a "$HOME/Applications/PhpStorm.app" "$(pwd)"
