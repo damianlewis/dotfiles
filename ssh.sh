@@ -20,7 +20,7 @@ eval "$(ssh-agent -s)"
 touch ~/.ssh/config
 echo "Host *\n AddKeysToAgent yes\n UseKeychain yes\n IdentityFile ~/.ssh/$KEY_NAME" | tee ~/.ssh/config
 
-ssh-add -K "$HOME/.ssh/$KEY_NAME"
+ssh-add --apple-use-keychain "$HOME/.ssh/$KEY_NAME"
 
 # Adding your SSH key to your GitHub account
 # https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
