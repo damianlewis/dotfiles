@@ -12,6 +12,7 @@ KEY_NAME="id_ed25519_github"
 # Generating a new SSH key
 # https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
 ssh-keygen -t ed25519 -C "$1" -f "$HOME/.ssh/$KEY_NAME"
+chmod 600 "$HOME/.ssh/$KEY_NAME"
 
 # Adding your SSH key to the ssh-agent
 # https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent
