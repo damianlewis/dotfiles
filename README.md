@@ -14,76 +14,62 @@ Go through the checklist below to make sure you didn't forget anything before yo
 
 ### Installing macOS cleanly
 
-After going through the checklist above, cleanly install macOS with the latest release. Follow [this article](https://www.imore.com/how-do-clean-install-macos) and [this article](https://www.macrumors.com/how-to/reinstall-macos-m1-apple-silicon-macs/) to cleanly install the latest macOS version. There's also [this video](https://www.youtube.com/watch?v=lBiUSnrYyFM) about reinstalling macOS on M1 Macs.
+After going through the checklist above, cleanly install macOS with the latest release.
 
 ### Setting up your Mac
 
 Once all the above is complete follow the instructions below to setup a new Mac.
 
 1. Check Software Update and update macOS to the latest version
-2. Sign into the Mac App Store, so that mas can download apps
-3. Make sure iCloud Drive is enabled, so that Mackup can restore settings
-4. Generate a new SSH key and add it to ssh-agent:
+[//]: # (2. Sign into the Mac App Store, so that mas can download apps)
+[//]: # (3. Make sure iCloud Drive is enabled, so that Mackup can restore settings)
+4. Setup an SSH key by using one of the two following methods:
+   4.1. If you use 1Password, install it with the 1Password [SSH agent](https://developer.1password.com/docs/ssh/get-started/#step-3-turn-on-the-1password-ssh-agent) and sync your SSH keys locally.  
+   4.2. Otherwise [generate a new public and private SSH key](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) by running:
 
-   ```zsh
-   # Generate a new SSH key
-   ssh-keygen -t ed25519
-
-   # Add the SSH key to ssh-agent
-   eval "$(ssh-agent -s)"
-   ssh-add -K ~/.ssh/id_ed25519
+   ```sh
+   curl https://raw.githubusercontent.com/damianlewis/dotfiles/HEAD/ssh.sh | sh -s "<your-email-address>"
    ```
 
-5. Add SSH key to GitHub account
+[//]: # (5. Install Command Line Developer Tools, required before running git command)
 
-   ```zsh
-   cat ~/.ed255519.pub | pbcopy
+[//]: # ()
+[//]: # (    ```sh)
+
+[//]: # (    xcode-select --install)
+
+[//]: # (    ```)
+
+5. Clone this repo to `~/.dotfiles` with:
+
+    ```sh
+    git clone --recursive git@github.com:damianlewis/dotfiles.git ~/.dotfiles
+    ```
+
+6. Run the installation with:
+
+   ```sh
+   cd ~/.dotfiles && ./install.sh
    ```
-
-6. Install Command Line Developer Tools, required before running git command
-
-    ```zsh
-    xcode-select --install
-    ```
-
-7. Clone this repo to `~/.dotfiles` with:
-
-    ```zsh
-    git clone git@github.com:damianlewis/dotfiles.git ~/.dotfiles
-    ```
-
-8. Run `~/.dotfiles/install.sh` to start the installation
+7. Start `Herd.app` and run its install process
+8. After Mackup is synced with your cloud storage, restore preferences by running `mackup restore`
 9. Restart your computer
 
 ## First time installation
 
 When installing these dotfiles for the first time you'll need to backup all of your settings with Mackup. Install Mackup and backup your settings with the commands below. Settings will be synced to iCloud so you can use them to sync between computers and reinstall them when reinstalling your Mac. Make sure your `.zshrc` file is symlinked from your dotfiles repo to your home directory. 
 
-```zsh
+```sh
 brew install mackup
 mackup backup
-```
-
-### Initial configurations
-
-Configure SSH before using Mackup backup for the first time, these settings will then be included with the initial backup.
-
-```zsh
-echo 'Host *\n\tAddKeysToAgent yes\n\tUseKeychain yes' > ~/.ssh/config
 ```
 
 ## Additional configurations
 
 I'm not using Mackup to backup settings with senstive data, so they need to be configured manually.
 
-1. Configure the StyleCI CLI tool with [your API key](https://gitlab.styleci.io/profile)
+1. Configure the AWS CLI tool
 
-    ```zsh
-    styleci config auth.github YOUR-API-KEY-GOES-HERE
-    ```
-
-2. Configure the AWS CLI tool
-
-    ```zsh
+    ```sh
     aws configure
     ```
