@@ -135,4 +135,4 @@ ln -sw "$DOTFILES/.mackup.cfg" "$HOME/.mackup.cfg"
 chmod +x "$DOTFILES/personal/repos.sh" && "$DOTFILES/personal/repos.sh"
 
 # Set macOS preferences - we will run this last because this will reload the shell
-#source "$DOTFILES/.macos"
+source "$DOTFILES/.macos"
