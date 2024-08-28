@@ -5,7 +5,7 @@ echo 'Setting up your Mac...'
 DOTFILES="$HOME/.dotfiles"
 
 # Check for Oh My Zsh and install if we don't have it
-if test ! "$(which omz)"; then
+if [[ ! -d "$HOME/.oh-my-zsh/" ]]; then
   echo 'Installing Oh My Zsh'
   /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
