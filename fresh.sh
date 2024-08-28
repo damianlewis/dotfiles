@@ -128,7 +128,7 @@ mkdir "$HOME/Reviewing"
 mkdir "$HOME/Sites"
 
 # Symlink the Mackup config file to the home directory
-ln -sw "$DOTFILES/.mackup.cfg" "$HOME/.mackup.cfg"
+#ln -sw "$DOTFILES/.mackup.cfg" "$HOME/.mackup.cfg" # Not using Mackup until https://github.com/lra/mackup?tab=readme-ov-file#warning is resolved
 # mackup restore
 
 # Set up sites/apps and packages from GitHub repositories

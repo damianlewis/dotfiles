@@ -6,7 +6,7 @@ tap 'homebrew/bundle'
 
 # Binaries
 brew 'awscli'
-brew 'mackup'
+# brew 'mackup'
 brew 'mas' # Mac App Store manager
 # brew 'pkg-config' # Required for imagick build
 
