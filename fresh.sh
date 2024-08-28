@@ -11,7 +11,7 @@ if [[ ! -d "$HOME/.oh-my-zsh/" ]]; then
 fi
 
 # Check for Homebrew and install if we don't have it
-if test ! "$(which brew)"; then
+if ! test -x "$(which brew)"; then
   echo 'Installing Homebrew'
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
