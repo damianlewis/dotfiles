@@ -1,14 +1,10 @@
 # Taps
-tap 'homebrew/cask'
-tap 'homebrew/cask-fonts'
-# tap 'homebrew/cask-versions'
 tap 'homebrew/bundle'
 
 # Binaries
 brew 'awscli'
 # brew 'mackup'
 brew 'mas' # Mac App Store manager
-# brew 'pkg-config' # Required for imagick build
 
 # Spatie Medialibrary
 # brew 'jpegoptim'
@@ -16,18 +12,6 @@ brew 'mas' # Mac App Store manager
 # brew 'pngquant'
 # brew 'svgo'
 # brew 'gifsicle'
-
-# Development
-# brew 'composer'
-# brew 'imagemagick'
-# brew 'mysql'
-# brew 'nginx'
-# brew 'node'
-# brew 'php'
-# brew 'php@7.4'
-# brew 'php@7.2'
-# brew 'redis'
-# brew 'yarn'
 
 # Apps
 cask '1password'
@@ -43,6 +27,7 @@ cask 'herd'
 # cask 'iterm2'
 cask 'jetbrains-toolbox'
 # cask 'logitech-options'
+# cask "microsoft-auto-update"
 cask 'microsoft-edge'
 cask 'microsoft-teams'
 cask 'notion'
