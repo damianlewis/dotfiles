@@ -1,15 +1,3 @@
-## Add path to homebrew binaries folder
-#export PATH="/opt/homebrew/bin:$PATH"
-#
-## Add path to composer's global binaries folder
-#export PATH="$HOME/.composer/vendor/bin:$PATH"
-#
-## Load NVM here to control how path to global node binaries is added
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-#
-## Use project binaries before global ones
-#export PATH="node_modules/.bin:vendor/bin:$PATH"
 # Add directories to the PATH and prevent to add the same directory multiple times upon shell reload.
 add_to_path() {
   if [[ -d "$1" ]] && [[ ":$PATH:" != *":$1:"* ]]; then
