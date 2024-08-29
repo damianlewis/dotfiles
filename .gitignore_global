@@ -3,6 +3,9 @@
 *.sql
 *.sqlite
 
+# Node
+.nvmrc
+
 # IDE generated files
 .idea/
 *.code-workspace
