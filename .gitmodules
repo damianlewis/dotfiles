@@ -1,9 +1,9 @@
-[submodule "personal"]
-	path = personal
-	url = git@github.com:damianlewis/dotfiles-config.git
 [submodule "themes/spaceship"]
 	path = themes/spaceship
 	url = git@github.com:spaceship-prompt/spaceship-prompt.git
 [submodule "plugins/artisan"]
 	path = plugins/artisan
 	url = git@github.com:jessarcher/zsh-artisan.git
+[submodule "personal"]
+	path = personal
+	url = git@github.com:damianlewis/dotfiles-config.git
