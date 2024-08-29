@@ -17,6 +17,7 @@ brew 'mas' # Mac App Store manager
 cask '1password'
 cask 'adobe-creative-cloud'
 cask 'arc'
+cask 'chatgpt'
 cask 'discord'
 # cask 'docker'
 cask 'firefox'
