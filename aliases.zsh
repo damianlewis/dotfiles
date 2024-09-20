@@ -34,6 +34,8 @@ alias biqbuild='composer install && artisan biq:build'
 alias biqdemo='artisan db:seed-demo --no-interaction --migrate --keys'
 alias biqdeploy='composer install && artisan biq:deploy'
 
+alias biqappbuild='composer install && yarn install && yarn prod'
+
 # Creative Workflow
 # alias cwreset='composer install && npm install && npm run dev'
 # alias cwfresh='php artisan migrate:fresh && php artisan db:seed'
