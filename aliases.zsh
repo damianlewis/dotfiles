@@ -30,7 +30,7 @@ alias pest="./vendor/bin/pest --parallel"
 alias pint="./vendor/bin/pint"
 
 # Brand-iQ
-alias biqreset='composer install && yarn install && yarn dev'
+alias biqbuild='composer install && artisan biq:build'
 alias biqdemo='artisan db:seed-demo --no-interaction --migrate --keys'
 
 # Creative Workflow
