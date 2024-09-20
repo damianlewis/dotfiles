@@ -24,6 +24,7 @@ alias watch="npm run dev"
 alias art='artisan'
 alias fresh="artisan migrate:fresh --seed"
 alias seed="artisan db:seed"
+alias horz="artisan horizon"
 
 alias pest="./vendor/bin/pest --parallel"
 alias pint="./vendor/bin/pint"
