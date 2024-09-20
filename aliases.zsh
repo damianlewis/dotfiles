@@ -32,6 +32,7 @@ alias pint="./vendor/bin/pint"
 # Brand-iQ
 alias biqbuild='composer install && artisan biq:build'
 alias biqdemo='artisan db:seed-demo --no-interaction --migrate --keys'
+alias biqdeploy='composer install && artisan biq:deploy'
 
 # Creative Workflow
 # alias cwreset='composer install && npm install && npm run dev'
