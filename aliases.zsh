@@ -33,6 +33,7 @@ alias pint="./vendor/bin/pint"
 alias biqbuild='composer install && artisan biq:build'
 alias biqdemo='artisan db:seed-demo --no-interaction --migrate --keys'
 alias biqdeploy='composer install && artisan biq:deploy'
+alias biqfresh='rm -rf vendor node_modules && composer install && artisan biq:deploy'
 
 alias biqappbuild='composer install && yarn install && yarn prod'
 
