@@ -26,7 +26,7 @@ alias fresh="artisan migrate:fresh --seed"
 alias seed="artisan db:seed"
 alias horz="artisan horizon"
 
-alias pest="./vendor/bin/pest --parallel"
+alias pest="./vendor/bin/pest --parallel --bail --colors=always"
 alias pint="./vendor/bin/pint"
 
 # Brand-iQ
