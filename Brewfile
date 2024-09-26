@@ -27,7 +27,7 @@ cask 'herd'
 # cask 'imageoptim'
 # cask 'iterm2'
 cask 'jetbrains-toolbox'
-# cask 'logitech-options'
+cask 'logi-options+'
 # cask "microsoft-auto-update"
 cask 'microsoft-edge'
 cask 'microsoft-teams'
