@@ -30,14 +30,16 @@ alias cu="composer update"
 alias nfresh="rm -rf node_modules && npm install"
 alias watch="npm run dev"
 
+# PHP
+alias pest="./vendor/bin/pest --parallel --bail --colors=always"
+alias pint="./vendor/bin/pint"
+alias rect="./vendor/bin/rector process --dry-run"
+
 # Laravel
 alias art='artisan'
 alias fresh="artisan migrate:fresh --seed"
 alias seed="artisan db:seed"
 alias horz="artisan horizon"
-
-alias pest="./vendor/bin/pest --parallel --bail --colors=always"
-alias pint="./vendor/bin/pint"
 
 # Brand-iQ
 alias biqbuild='composer install && artisan biq:build'
