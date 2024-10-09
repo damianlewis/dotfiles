@@ -45,8 +45,7 @@ alias horz="artisan horizon"
 alias biqbuild='composer install && artisan biq:build'
 alias biqdemo='artisan db:seed-demo --no-interaction --migrate --keys'
 alias biqdeploy='composer install && artisan biq:deploy'
-alias biqfresh='rm -rf vendor node_modules && composer install && artisan biq:deploy'
-
+alias biqfresh='rm -rf vendor node_modules && composer install && yarn install'
 alias biqappbuild='composer install && yarn install && yarn prod'
 
 # Creative Workflow
