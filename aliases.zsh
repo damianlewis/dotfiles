@@ -40,6 +40,7 @@ alias art='artisan'
 alias fresh="artisan migrate:fresh --seed"
 alias seed="artisan db:seed"
 alias horz="artisan horizon"
+alias opt="artisan optimize"
 
 # Brand-iQ
 alias biqbuild='composer install && artisan biq:build'
