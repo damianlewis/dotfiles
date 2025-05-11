@@ -47,7 +47,6 @@ cask 'font-fira-code-nerd-font'
 
 # Mac App Store
 mas "1Password for Safari", id: 1569813296
-mas 'Moom', id: 419330170
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 # mas 'Spark', id: 1176895641
