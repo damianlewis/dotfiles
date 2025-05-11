@@ -63,6 +63,9 @@ alias biqdemo='artisan db:seed-demo --no-interaction --migrate --keys'
 alias biqdeploy='composer install && artisan biq:deploy'
 alias biqfresh='rm -rf vendor node_modules && composer install && yarn install'
 alias biqappbuild='composer install && yarn install && yarn prod'
+alias biqthemesbuild='artisan biq:build-themes'
+alias biqstart="screen -dmS horizon php artisan horizon && screen -dmS yarn-dev yarn dev"
+alias biqstop="screen -X -S horizon quit && screen -X -S yarn-dev quit"
 
 # Creative Workflow
 # alias cwreset='composer install && npm install && npm run dev'
