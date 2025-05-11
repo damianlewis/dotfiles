@@ -15,16 +15,15 @@ alias php="herd php"
 alias which-php="herd which-php"
 
 # Composer
-alias cdu="composer dump-autoload"
+alias dump="composer dump-autoload"
+alias c="composer"
 alias cfresh="rm -rf vendor && composer install"
 alias cgr="composer global require"
 alias cgrm="composer global remove"
 alias cgu="composer global update"
 alias ci="composer install"
-alias co="composer outdated"
 alias cr="composer require"
 alias crm="composer remove"
-alias cs="composer show"
 alias cu="composer update"
 
 # JS
