@@ -26,9 +26,15 @@ alias cr="composer require"
 alias crm="composer remove"
 alias cu="composer update"
 
-# JS
+# npm/yarn
+alias ni="npm install"
 alias nfresh="rm -rf node_modules && npm install"
-alias watch="npm run dev"
+alias nbuild="npm run build"
+alias ndev="npm run dev"
+alias yi="yarn install"
+alias yfresh="rm -rf node_modules && yarn install"
+alias ybuild="yarn build"
+alias ydev="yarn dev"
 
 # PHP
 alias pest="./vendor/bin/pest --parallel --bail --colors=always"
