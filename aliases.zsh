@@ -1,6 +1,7 @@
 # Shortcuts
 alias copyssh="pbcopy < $HOME/.ssh/id_ed25519.pub"
 alias reloadzsh="omz reload"
+alias srczsh="source ~/.zshrc"
 
 # Folders
 alias biq="cd $HOME/Sites/brand-iq/brand-iq"
