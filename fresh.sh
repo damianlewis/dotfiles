@@ -51,4 +51,4 @@ mkdir "$HOME/Sites"
 # mackup restore
 
 # Set macOS preferences - we will run this last because this will reload the shell
-source "$DOTFILES/.macos"
+#source "$DOTFILES/.macos"
