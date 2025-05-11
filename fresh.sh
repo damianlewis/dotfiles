@@ -35,6 +35,11 @@ echo 'Creating symlink for Oh My Zsh spaceship theme'
 #git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$DOTFILES/themes/spaceship-prompt" --depth=1
 ln -sw "$DOTFILES/themes/spaceship/spaceship.zsh-theme" "$DOTFILES/themes/spaceship.zsh-theme"
 
+# Symlink the global git files
+mkdir -p "$HOME/.config/git"
+ln -sw "$DOTFILES/git/.gitconfig" "$HOME/.gitconfig"
+ln -sw "$DOTFILES/git/.gitignore" "$HOME/.config/git/ignore"
+
 # Create folders
 echo 'Creating folders'
 mkdir "$HOME/Code"
