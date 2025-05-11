@@ -4,6 +4,14 @@ echo 'Setting up your Mac...'
 
 DOTFILES="$HOME/.dotfiles"
 
+# Check if Xcode Command Line Tools are installed
+if ! xcode-select -p &>/dev/null; then
+  echo "Xcode Command Line Tools not found. Installing..."
+  xcode-select --install
+else
+  echo "Xcode Command Line Tools already installed."
+fi
+
 # Check for Oh My Zsh and install if we don't have it
 if [[ ! -d "$HOME/.oh-my-zsh/" ]]; then
   echo 'Installing Oh My Zsh'
