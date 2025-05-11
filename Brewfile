@@ -1,6 +1,3 @@
-# Taps
-tap 'homebrew/bundle'
-
 # Binaries
 brew 'awscli'
 # brew 'mackup'

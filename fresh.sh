@@ -35,7 +35,6 @@ ln -sw "$DOTFILES/.zshrc" "$HOME/.zshrc"
 # Install dependencies with Homebrew bundle (See Brewfile)
 echo 'Installing dependencies from Homebrew bundle'
 brew update
-brew tap homebrew/bundle
 brew bundle --file "$DOTFILES/Brewfile"
 
 # Symlink the spaceship Oh My Zsh theme
