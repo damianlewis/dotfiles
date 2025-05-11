@@ -49,6 +49,10 @@ alias artclear="artisan optimize:clear"
 alias artfresh="artisan migrate:fresh --seed"
 alias artopt="artisan optimize"
 
+# Screen
+alias srhorz="screen -r horizon"
+alias srydev="screen -r yarn-dev"
+
 # Filament
 alias filclear="artisan filament:optimize-clear"
 alias filopt="artisan filament:optimize"
