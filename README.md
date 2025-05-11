@@ -49,7 +49,7 @@ Once all the above is complete follow the instructions below to setup a new Mac.
 6. Run the installation with:
 
    ```sh
-   cd ~/.dotfiles && ./install.sh
+   cd ~/.dotfiles && ./fresh.sh
    ```
 7. Start `Herd.app` and run its install process
 8. After Mackup is synced with your cloud storage, restore preferences by running `mackup restore`
