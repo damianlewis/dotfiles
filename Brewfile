@@ -7,11 +7,12 @@ brew 'awscli'
 brew 'mas' # Mac App Store manager
 
 # Spatie Medialibrary
-# brew 'jpegoptim'
-# brew 'optipng'
-# brew 'pngquant'
-# brew 'svgo'
-# brew 'gifsicle'
+brew 'jpegoptim'
+brew 'optipng'
+brew 'pngquant'
+brew 'svgo'
+brew 'gifsicle'
+brew 'libavif'
 
 # Apps
 cask '1password'
