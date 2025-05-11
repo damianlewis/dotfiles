@@ -39,7 +39,7 @@ cask 'setapp'
 cask 'sketch'
 cask 'spotify'
 cask 'tinkerwell'
-# cask 'visual-studio-code'
+cask 'visual-studio-code'
 cask 'warp'
 
 # Fonts
