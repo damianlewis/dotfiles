@@ -42,11 +42,12 @@ alias pint="./vendor/bin/pint"
 alias rect="./vendor/bin/rector process --dry-run"
 
 # Laravel
-alias art='artisan'
-alias fresh="artisan migrate:fresh --seed"
-alias seed="artisan db:seed"
 alias horz="artisan horizon"
-alias opt="artisan optimize"
+alias seed="artisan db:seed"
+alias art='artisan'
+alias artclear="artisan optimize:clear"
+alias artfresh="artisan migrate:fresh --seed"
+alias artopt="artisan optimize"
 
 # Brand-iQ
 alias biqbuild='composer install && artisan biq:build'
