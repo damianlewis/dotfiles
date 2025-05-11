@@ -80,6 +80,7 @@ ZSH_CUSTOM=$DOTFILES
 plugins=(
   artisan
   git
+  spaceship-reviewing
 )
 
 source "$ZSH/oh-my-zsh.sh"
