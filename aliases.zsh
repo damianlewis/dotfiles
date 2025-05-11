@@ -49,6 +49,10 @@ alias artclear="artisan optimize:clear"
 alias artfresh="artisan migrate:fresh --seed"
 alias artopt="artisan optimize"
 
+# Filament
+alias filclear="artisan filament:optimize-clear"
+alias filopt="artisan filament:optimize"
+
 # Brand-iQ
 alias biqbuild='composer install && artisan biq:build'
 alias biqdemo='artisan db:seed-demo --no-interaction --migrate --keys'
