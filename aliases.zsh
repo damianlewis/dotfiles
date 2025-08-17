@@ -38,34 +38,29 @@ alias ydev="yarn dev"
 
 # PHP
 alias pest="./vendor/bin/pest --parallel --bail --colors=always"
-alias pint="./vendor/bin/pint"
+alias pint="./vendor/bin/pint --parallel"
 alias rect="./vendor/bin/rector process --dry-run"
 
 # Laravel
-alias horz="artisan horizon"
-alias seed="artisan db:seed"
-alias art='artisan'
-alias artclear="artisan optimize:clear"
-alias artfresh="artisan migrate:fresh --seed"
-alias artopt="artisan optimize"
-
-# Screen
-alias srhorz="screen -r horizon"
-alias srydev="screen -r yarn-dev"
+alias horz="php artisan horizon"
+alias seed="php artisan db:seed"
+alias art='php artisan'
+alias artclear="php artisan optimize:clear"
+alias artfresh="php artisan migrate:fresh --seed"
+alias artopt="php artisan optimize"
 
 # Filament
-alias filclear="artisan filament:optimize-clear"
-alias filopt="artisan filament:optimize"
+alias filclear="php artisan filament:optimize-clear"
+alias filopt="php artisan filament:optimize"
 
 # Brand-iQ
 alias biqbuild='composer install && artisan biq:build'
-alias biqdemo='artisan db:seed-demo --no-interaction --migrate --keys'
+alias biqdemo='php artisan db:seed-demo --no-interaction --migrate --keys'
 alias biqdeploy='composer install && artisan biq:deploy'
 alias biqfresh='rm -rf vendor node_modules && composer install && yarn install'
 alias biqappbuild='composer install && yarn install && yarn prod'
-alias biqthemesbuild='artisan biq:build-themes'
-alias biqstart="screen -dmS horizon php artisan horizon && screen -dmS yarn-dev yarn dev"
-alias biqstop="screen -X -S horizon quit && screen -X -S yarn-dev quit"
+alias biqthemesbuild='php artisan biq:build-themes'
+alias biqdev='npx concurrently -c "#93c5fd,#c4b5fd,#fb7185" "php artisan horizon" "yarn dev" "php artisan biq:build-themes" --names=horizon,vite,theme'
 
 # Creative Workflow
 # alias cwreset='composer install && npm install && npm run dev'
@@ -75,4 +70,3 @@ alias biqstop="screen -X -S horizon quit && screen -X -S yarn-dev quit"
 # Show/hide hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder"
-
