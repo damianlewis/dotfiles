@@ -2,6 +2,24 @@
 
 This repository helps set up a fresh macOS installation.
 
+## What's included
+
+| Path                   | Purpose                                          |
+|------------------------|--------------------------------------------------|
+| `.zshrc`               | Zsh configuration (plugins, theme, editor)       |
+| `aliases.zsh`          | Shell aliases (auto-loaded by Oh My Zsh)         |
+| `path.zsh`             | `$PATH` modifications (auto-loaded by Oh My Zsh) |
+| `Brewfile`             | Homebrew packages, casks, and Mac App Store apps |
+| `git/config`           | Git configuration                                |
+| `git/ignore`           | Global gitignore                                 |
+| `config/`              | App-specific configs (Spaceship prompt)          |
+| `scripts/setup.sh`     | Main setup script                                |
+| `scripts/setup-ssh.sh` | SSH key setup for GitHub                         |
+| `docs/`                | Manual setup guides (macOS preferences)          |
+| `work/`                | Work-specific setup (private submodule)          |
+
+## Setting up a new Mac
+
 ### Before re-installing macOS
 
 Go through the checklist below to make sure you didn't forget anything before you wipe your hard drive.
@@ -10,7 +28,6 @@ Go through the checklist below to make sure you didn't forget anything before yo
 - Did you remember to save all important documents from non-iCloud directories?
 - Did you save all of your work from apps which aren't synced through iCloud?
 - Did you remember to export important data from your local database?
-- Did you update [mackup](https://github.com/lra/mackup) to the latest version and ran `mackup backup`?
 
 ### Installing macOS cleanly
 
@@ -21,52 +38,41 @@ After going through the checklist above, cleanly install macOS with the latest r
 Once all the above is complete follow the instructions below to setup a new Mac.
 
 1. Check Software Update and update macOS to the latest version
-[//]: # (2. Sign into the Mac App Store, so that mas can download apps)
-[//]: # (3. Make sure iCloud Drive is enabled, so that Mackup can restore settings)
-4. Setup an SSH key by using one of the two following methods:
-   4.1. If you use 1Password, install it with the 1Password [SSH agent](https://developer.1password.com/docs/ssh/get-started/#step-3-turn-on-the-1password-ssh-agent) and sync your SSH keys locally.  
-   4.2. Otherwise [generate a new public and private SSH key](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) by running:
-
-   ```sh
-   curl https://raw.githubusercontent.com/damianlewis/dotfiles/HEAD/ssh.sh | sh -s "<your-email-address>"
-   ```
-
-[//]: # (5. Install Command Line Developer Tools, required before running git command)
-
-[//]: # ()
-[//]: # (    ```sh)
-
-[//]: # (    xcode-select --install)
-
-[//]: # (    ```)
-
-5. Clone this repo to `~/.dotfiles` with:
+2. Clone this repo to `~/Code/config/dotfiles` with:
 
     ```sh
-    git clone --recursive git@github.com:damianlewis/dotfiles.git ~/.dotfiles
+    git clone https://github.com/damianlewis/dotfiles.git ~/Code/config/dotfiles
     ```
 
-6. Run the installation with:
+3. Run the setup script:
 
    ```sh
-   cd ~/.dotfiles && ./fresh.sh
+   cd ~/Code/config/dotfiles && ./scripts/setup.sh
    ```
-7. Start `Herd.app` and run its install process
-8. After Mackup is synced with your cloud storage, restore preferences by running `mackup restore`
-9. Restart your computer
 
-## First time installation
+   The script will install Homebrew and Oh My Zsh, symlink config files, install Brewfile dependencies, and prompt to set up SSH and work tools.
 
-When installing these dotfiles for the first time you'll need to backup all of your settings with Mackup. Install Mackup and backup your settings with the commands below. Settings will be synced to iCloud so you can use them to sync between computers and reinstall them when reinstalling your Mac. Make sure your `.zshrc` file is symlinked from your dotfiles repo to your home directory. 
+4. Start `Herd.app` and run its install process
+5. Apply macOS preferences from [`docs/macos-setup.md`](docs/macos-setup.md)
+6. Restart your computer
+
+## Updating
+
+After pulling changes, re-run the setup script to apply updates:
 
 ```sh
-brew install mackup
-mackup backup
+cd ~/Code/config/dotfiles && ./scripts/setup.sh
 ```
+
+Symlinks are created with force (`-swf`), so re-running is safe.
+
+## Work setup
+
+The `work/` directory is a private submodule ([dotfiles-config](https://github.com/damianlewis/dotfiles-config)) containing work-specific setup scripts and tools. It is cloned automatically when the setup script initialises submodules (requires SSH access to GitHub).
 
 ## Additional configurations
 
-I'm not using Mackup to backup settings with senstive data, so they need to be configured manually.
+The following need to be configured manually.
 
 1. Configure the AWS CLI tool
 
