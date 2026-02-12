@@ -1,2 +1,3 @@
-/themes/*.zsh-theme
 Brewfile.lock.json
+/config/*.zwc
+/.vscode
