@@ -14,8 +14,26 @@
 	sort = -committerdate
 [tag]
 	sort = version:refname
+[push]
+	autoSetupRemote = true
+[fetch]
+	prune = true
+[pull]
+	rebase = true
+[rerere]
+	enabled = true
+[merge]
+	conflictStyle = zdiff3
 [diff]
 	algorithm = histogram
 	colorMoved = plain
 	mnemonicPrefix = true
 	renames = true
+[gtr]
+	defaultBranch = main
+[gtr "worktrees"]
+	dir = ~/Worktrees
+[gtr "ai"]
+	default = claude
+[gtr "editor"]
+	default = vscode
