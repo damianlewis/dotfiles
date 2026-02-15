@@ -1,3 +1,5 @@
+.DS_Store
+.vscode/
+.idea/
+config/*.zwc
 Brewfile.lock.json
-/config/*.zwc
-/.vscode
