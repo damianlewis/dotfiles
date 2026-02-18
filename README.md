@@ -68,7 +68,7 @@ Symlinks are created with force (`-swf`), so re-running is safe.
 
 ## Work setup
 
-The `work/` directory is a private submodule ([dotfiles-config](https://github.com/damianlewis/dotfiles-config)) containing work-specific setup scripts and tools. It is cloned automatically when the setup script initialises submodules (requires SSH access to GitHub).
+The `work/` directory is a private submodule ([dotfiles-work](https://github.com/damianlewis/dotfiles-work)) containing work-specific setup scripts and tools. It is cloned automatically when the setup script initialises submodules (requires SSH access to GitHub).
 
 ## Additional configurations
 
