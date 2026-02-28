@@ -20,7 +20,9 @@ alias yfresh="rm -rf node_modules && yarn install"
 
 # PHP
 alias pint="./vendor/bin/pint --parallel --test"
+alias pintfix="./vendor/bin/pint --parallel"
 alias rect="./vendor/bin/rector process --dry-run"
+alias rectfix="./vendor/bin/rector process"
 alias pest="./vendor/bin/pest --parallel --colors=always"
 alias prp="pint && rect && pest"
 
