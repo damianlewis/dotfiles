@@ -35,5 +35,3 @@
 	dir = ~/Worktrees
 [gtr "ai"]
 	default = claude
-[gtr "editor"]
-	default = vscode
