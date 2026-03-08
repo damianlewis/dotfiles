@@ -4,19 +4,21 @@ This repository helps set up a fresh macOS installation.
 
 ## What's included
 
-| Path                   | Purpose                                          |
-|------------------------|--------------------------------------------------|
-| `.zshrc`               | Zsh configuration (plugins, theme, editor)       |
-| `aliases.zsh`          | Shell aliases (auto-loaded by Oh My Zsh)         |
-| `path.zsh`             | `$PATH` modifications (auto-loaded by Oh My Zsh) |
-| `Brewfile`             | Homebrew packages, casks, and Mac App Store apps |
-| `git/config`           | Git configuration                                |
-| `git/ignore`           | Global gitignore                                 |
-| `config/`              | App-specific configs (Spaceship prompt)          |
-| `scripts/setup.sh`     | Main setup script                                |
-| `scripts/setup-ssh.sh` | SSH key setup for GitHub                         |
-| `docs/`                | Manual setup guides (macOS preferences)          |
-| `work/`                | Work-specific setup (private submodule)          |
+| Path                  | Purpose                                          |
+|-----------------------|--------------------------------------------------|
+| `bin/install`         | Main setup script                                |
+| `bin/update`          | Update dotfiles, Homebrew, and global packages   |
+| `bin/setup-ssh`       | SSH key setup for GitHub                         |
+| `bin/macos-defaults`  | macOS terminal defaults commands                 |
+| `shell/.zshrc`        | Zsh configuration (plugins, theme, editor)       |
+| `shell/aliases.zsh`   | Shell aliases (auto-loaded by Oh My Zsh)         |
+| `shell/path.zsh`      | `$PATH` modifications (auto-loaded by Oh My Zsh) |
+| `shell/functions.zsh` | Shell functions (auto-loaded by Oh My Zsh)       |
+| `config/Brewfile`     | Homebrew packages, casks, and Mac App Store apps |
+| `config/git/`         | Git configuration and global gitignore           |
+| `config/spaceship.zsh`| Spaceship prompt configuration                   |
+| `docs/`               | Manual setup guides (macOS preferences)          |
+| `work/`               | Work-specific setup (private submodule)          |
 
 ## Setting up a new Mac
 
@@ -44,10 +46,10 @@ Once all the above is complete follow the instructions below to setup a new Mac.
     git clone https://github.com/damianlewis/dotfiles.git ~/Code/config/dotfiles
     ```
 
-3. Run the setup script:
+3. Run the install script:
 
    ```sh
-   cd ~/Code/config/dotfiles && ./scripts/setup.sh
+   cd ~/Code/config/dotfiles && ./bin/install
    ```
 
    The script will install Homebrew and Oh My Zsh, symlink config files, install Brewfile dependencies, and prompt to set up SSH and work tools.
@@ -58,17 +60,23 @@ Once all the above is complete follow the instructions below to setup a new Mac.
 
 ## Updating
 
-After pulling changes, re-run the setup script to apply updates:
+Run the update alias to pull the latest changes and update all packages:
 
 ```sh
-cd ~/Code/config/dotfiles && ./scripts/setup.sh
+dotup
+```
+
+Or re-run the install script to apply updates:
+
+```sh
+cd ~/Code/config/dotfiles && ./bin/install
 ```
 
 Symlinks are created with force (`-swf`), so re-running is safe.
 
 ## Work setup
 
-The `work/` directory is a private submodule ([dotfiles-work](https://github.com/damianlewis/dotfiles-work)) containing work-specific setup scripts and tools. It is cloned automatically when the setup script initialises submodules (requires SSH access to GitHub).
+The `work/` directory is a private submodule ([dotfiles-work](https://github.com/damianlewis/dotfiles-work)) containing work-specific setup scripts and tools. It is cloned automatically when the install script initialises submodules (requires SSH access to GitHub).
 
 ## Additional configurations
 

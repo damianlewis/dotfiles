@@ -11,7 +11,7 @@ export SPACESHIP_CONFIG="$DOTFILES/config/spaceship.zsh"
 HIST_STAMPS="dd/mm/yyyy"
 
 # Custom folder
-ZSH_CUSTOM=$DOTFILES
+ZSH_CUSTOM=$DOTFILES/shell
 
 # Disable auto title
 DISABLE_AUTO_TITLE="true"

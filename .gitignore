@@ -2,4 +2,5 @@
 .vscode/
 .idea/
 config/*.zwc
+shell/**/*.zwc
 Brewfile.lock.json

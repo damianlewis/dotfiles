@@ -1,6 +1,6 @@
-[submodule "plugins/artisan"]
-	path = plugins/artisan
-	url = git@github.com:jessarcher/zsh-artisan.git
 [submodule "work"]
 	path = work
 	url = git@github.com:damianlewis/dotfiles-work.git
+[submodule "shell/plugins/artisan"]
+	path = shell/plugins/artisan
+	url = git@github.com:jessarcher/zsh-artisan.git
