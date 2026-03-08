@@ -75,3 +75,6 @@ export HERD_PHP_74_INI_SCAN_DIR="/Users/damianlewis/Library/Application Support/
 
 # Herd injected PHP binary.
 export PATH="/Users/damianlewis/Library/Application Support/Herd/bin/":$PATH
+
+# Local overrides (not version controlled)
+[[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"

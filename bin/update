@@ -1,0 +1,32 @@
+#!/bin/bash
+
+echo 'Updating dotfiles...'
+
+CODE="$HOME/Code"
+DOTFILES="$CODE/config/dotfiles"
+
+# Pull latest dotfiles
+git -C "$DOTFILES" pull --rebase
+git -C "$DOTFILES" submodule update --recursive
+
+# Update Homebrew packages
+echo 'Updating Homebrew packages'
+brew update
+brew upgrade
+brew bundle --file "$DOTFILES/config/Brewfile"
+brew cleanup
+
+# Update global Composer packages
+if command -v composer &>/dev/null; then
+  echo 'Updating Composer global packages'
+  composer global update
+fi
+
+# Update global npm packages
+if command -v npm &>/dev/null; then
+  echo 'Updating npm global packages'
+  npm update -g
+fi
+
+echo ''
+echo 'Done! You may want to restart your terminal.'
