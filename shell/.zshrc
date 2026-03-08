@@ -29,6 +29,12 @@ source "$ZSH/oh-my-zsh.sh"
 # Spaceship prompt (installed via Homebrew)
 source "$(brew --prefix)/opt/spaceship/spaceship.zsh"
 
+# Zoxide (smart directory jumping)
+(( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
+
+# fzf key bindings and completion
+(( $+commands[fzf] )) && source <(fzf --zsh)
+
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR="vim"

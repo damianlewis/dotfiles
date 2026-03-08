@@ -1,3 +1,7 @@
+# Modern tool replacements (graceful fallback)
+(( $+commands[eza] )) && alias ls='eza --group-directories-first --icons'
+(( $+commands[bat] )) && alias cat='bat --paging=never'
+
 # Applications
 alias pstorm='open -a "PhpStorm" .'
 
