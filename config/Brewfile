@@ -62,6 +62,15 @@ cask 'visual-studio-code'
 cask 'warp'
 cask 'wispr-flow'
 
+# QuickLook Plugins
+cask 'betterzip'
+cask 'qlmarkdown'
+cask 'qlstephen'
+cask 'quicklook-csv'
+cask 'quicklook-json'
+cask 'suspicious-package'
+cask 'syntax-highlight'
+
 # Fonts
 cask 'font-fira-code-nerd-font'
 

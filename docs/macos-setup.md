@@ -52,29 +52,12 @@ Non-default system preferences to configure on a fresh Mac.
 
 - [ ] Format > Make Plain Text: **on** (for new documents)
 
-## Terminal commands (no GUI equivalent)
+## Terminal defaults (no GUI equivalent)
 
-```bash
-# Highlight hover effect for grid view of a stack in the Dock
-defaults write com.apple.dock mouse-over-hilite-stack -bool true && killall Dock
+Run the macOS defaults script to apply these settings:
 
-# Expand save panel by default
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
-
-# Expand print panel by default
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
-
-# Save to disk (not iCloud) by default
-defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
-
-# Avoid creating .DS_Store files on network or USB volumes
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
-
-# Prevent Time Machine from prompting to use new hard drives as backup volume
-defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+```sh
+./bin/macos-defaults
 ```
 
 ## References
