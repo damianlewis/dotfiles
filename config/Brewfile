@@ -65,7 +65,6 @@ cask 'betterzip'
 cask 'qlmarkdown'
 cask 'qlstephen'
 cask 'quicklook-csv'
-cask 'quicklook-json'
 cask 'suspicious-package'
 cask 'syntax-highlight'
 
