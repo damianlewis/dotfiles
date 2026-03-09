@@ -1,0 +1,27 @@
+# Theme
+theme = dark:Apple System Colors,light:Apple System Colors Light
+background = #1C1C1C
+window-colorspace = display-p3
+
+# Font
+font-family = FiraCode Nerd Font Mono
+font-size = 13
+
+# Layout
+adjust-cell-height = 30%
+
+# Splits
+unfocused-split-opacity = 0.7
+unfocused-split-fill = #5C5C5C
+
+# Padding
+window-padding-x = 10
+window-padding-y = 8
+
+# Cursor
+adjust-cursor-thickness = 2
+
+# Keyboard
+macos-option-as-alt = true
+keybind = opt+digit_2=text:€
+keybind = opt+digit_3=text:#
