@@ -1,5 +1,2 @@
-if [[ $TERM_PROGRAM == "WarpTerminal" ]]; then
-  SPACESHIP_PROMPT_ASYNC=false
-fi
-
+SPACESHIP_PROMPT_ASYNC=false
 SPACESHIP_PROMPT_PREFIXES_SHOW=false
