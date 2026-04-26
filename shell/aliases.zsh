@@ -31,16 +31,24 @@ alias pest="./vendor/bin/pest --parallel --colors=always"
 alias prp="pint && rect && pest"
 
 # Laravel
-alias art="artisan"
-alias artfresh="artisan migrate:fresh --seed"
-alias artopt="artisan optimize"
-alias artoptc="artisan optimize:clear"
-alias horz="artisan horizon"
-alias seed="artisan db:seed"
+alias art="php artisan"
+alias artfresh="php artisan migrate:fresh --seed"
+alias artopt="php artisan optimize"
+alias artoptc="php artisan optimize:clear"
+alias horz="php artisan horizon"
+alias seed="php artisan db:seed"
 
 # Filament
-alias filopt="artisan filament:optimize"
-alias filoptc="artisan filament:optimize-clear"
+alias filopt="php artisan filament:optimize"
+alias filoptc="php artisan filament:optimize-clear"
+
+# Artisan completion
+_art_completion() {
+  if [[ -f artisan ]]; then
+    compadd $(php artisan --raw --no-ansi list 2>/dev/null | sed "s/[[:space:]].*//g")
+  fi
+}
+compdef _art_completion art
 
 # Git shortcuts
 alias nah='git reset --hard && git clean -df'

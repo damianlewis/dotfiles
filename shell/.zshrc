@@ -18,7 +18,6 @@ DISABLE_AUTO_TITLE="true"
 
 # Plugins
 plugins=(
-  artisan
   composer
   git
   yarn
