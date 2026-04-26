@@ -91,3 +91,4 @@ alias localip='ipconfig getifaddr en0'
 
 # Dotfiles
 alias dotup='source $DOTFILES/bin/update'
+alias reload='source ~/.zshrc'
