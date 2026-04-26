@@ -22,13 +22,38 @@ alias nfresh="rm -rf node_modules && npm install"
 # yarn (most aliases provided by the yarn plugin)
 alias yfresh="rm -rf node_modules && yarn install"
 
-# PHP
-alias pint="./vendor/bin/pint --parallel --test"
-alias pintfix="./vendor/bin/pint --parallel"
-alias rect="./vendor/bin/rector process --dry-run"
-alias rectfix="./vendor/bin/rector process"
-alias pest="./vendor/bin/pest --parallel --colors=always"
-alias prp="pint && rect && pest"
+# PHP — prefer project-defined composer scripts, fall back to vendor binaries
+_has_composer_script() {
+  [[ -f composer.json ]] && composer run-script --list 2>/dev/null \
+    | grep -qE "^[[:space:]]*$1([[:space:]]|\$)"
+}
+clint() {
+  if _has_composer_script lint; then composer lint
+  else ./vendor/bin/pint --parallel
+  fi
+}
+clint:dry() {
+  if _has_composer_script lint:dry; then composer lint:dry
+  else ./vendor/bin/pint --parallel --test
+  fi
+}
+crefactor() {
+  if _has_composer_script refactor; then composer refactor
+  else ./vendor/bin/rector process
+  fi
+}
+crefactor:dry() {
+  if _has_composer_script refactor:dry; then composer refactor:dry
+  else ./vendor/bin/rector process --dry-run
+  fi
+}
+ctest() {
+  if _has_composer_script test; then composer test
+  else ./vendor/bin/pest --parallel --colors=always
+  fi
+}
+alias ccheck="crefactor && clint && ctest"
+alias ccheck:dry="crefactor:dry && clint:dry && ctest"
 
 # Laravel
 alias art="php artisan"
