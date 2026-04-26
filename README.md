@@ -1,6 +1,6 @@
 # Damian's Dotfiles
 
-This repository helps set up a fresh macOS installation.
+Configuration and setup scripts for a fresh macOS installation.
 
 ## What's included
 
@@ -9,7 +9,8 @@ This repository helps set up a fresh macOS installation.
 | `bin/install`         | Main setup script                                |
 | `bin/update`          | Update dotfiles, Homebrew, and global packages   |
 | `bin/setup-ssh`       | SSH key setup for GitHub                         |
-| `bin/macos-defaults`  | macOS terminal defaults commands                 |
+| `bin/macos-defaults`  | Apply preferred macOS system defaults            |
+| `lib/`                | Shared logging and style utilities               |
 | `shell/.zshrc`        | Zsh configuration (plugins, theme, editor)       |
 | `shell/aliases.zsh`   | Shell aliases (auto-loaded by Oh My Zsh)         |
 | `shell/path.zsh`      | `$PATH` modifications (auto-loaded by Oh My Zsh) |
@@ -20,27 +21,23 @@ This repository helps set up a fresh macOS installation.
 | `docs/`               | Manual setup guides (macOS preferences)          |
 | `work/`               | Work-specific setup (private submodule)          |
 
-## Setting up a new Mac
+## Setup
 
 ### Before re-installing macOS
 
-Go through the checklist below to make sure you didn't forget anything before you wipe your hard drive.
+- Commit and push any changes/branches to git repositories
+- Save all important documents from non-iCloud directories
+- Save all work from apps not synced through iCloud
+- Export important data from local databases
 
-- Did you commit and push any changes/branches to your git repositories?
-- Did you remember to save all important documents from non-iCloud directories?
-- Did you save all of your work from apps which aren't synced through iCloud?
-- Did you remember to export important data from your local database?
+### Installing macOS
 
-### Installing macOS cleanly
+Cleanly install macOS with the latest release.
 
-After going through the checklist above, cleanly install macOS with the latest release.
+### Setting up a new Mac
 
-### Setting up your Mac
-
-Once all the above is complete follow the instructions below to setup a new Mac.
-
-1. Check Software Update and update macOS to the latest version
-2. Clone this repo to `~/Code/config/dotfiles` with:
+1. Update macOS to the latest version via Software Update
+2. Clone this repo:
 
     ```sh
     git clone https://github.com/damianlewis/dotfiles.git ~/Code/config/dotfiles
@@ -48,25 +45,23 @@ Once all the above is complete follow the instructions below to setup a new Mac.
 
 3. Run the install script:
 
-   ```sh
-   cd ~/Code/config/dotfiles && ./bin/install
-   ```
-
-   The script will install Homebrew and Oh My Zsh, symlink config files, install Brewfile dependencies, and prompt to set up SSH and work tools.
+    ```sh
+    cd ~/Code/config/dotfiles && ./bin/install
+    ```
 
 4. Start `Herd.app` and run its install process
 5. Apply macOS preferences from [`docs/macos-setup.md`](docs/macos-setup.md)
-6. Restart your computer
+6. Restart the computer
 
 ## Updating
 
-Run the update alias to pull the latest changes and update all packages:
+Pull latest changes and update all packages:
 
 ```sh
 dotup
 ```
 
-Or re-run the install script to apply updates:
+Or re-run the install script:
 
 ```sh
 cd ~/Code/config/dotfiles && ./bin/install
@@ -76,14 +71,12 @@ Symlinks are created with force (`-swf`), so re-running is safe.
 
 ## Work setup
 
-The `work/` directory is a private submodule ([dotfiles-work](https://github.com/damianlewis/dotfiles-work)) containing work-specific setup scripts and tools. It is cloned automatically when the install script initialises submodules (requires SSH access to GitHub).
+The `work/` directory is a private submodule ([dotfiles-work](https://github.com/damianlewis/dotfiles-work)) containing work-specific setup. Cloned automatically when the install script initialises submodules (requires SSH access to GitHub).
 
-## Additional configurations
+## Additional configuration
 
-The following need to be configured manually.
+Configure the AWS CLI:
 
-1. Configure the AWS CLI tool
-
-    ```sh
-    aws configure
-    ```
+```sh
+aws configure
+```
