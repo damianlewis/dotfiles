@@ -1,32 +1,43 @@
 #!/bin/bash
+# Update dotfiles, Homebrew packages, and global dependencies
+set -e
 
-echo 'Updating dotfiles...'
+SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")/.."
+source "$SCRIPT_DIR/lib/logging.sh"
 
 CODE="$HOME/Code"
 DOTFILES="$CODE/config/dotfiles"
 
+header "Updating dotfiles"
+
 # Pull latest dotfiles
+step "Pulling latest changes..."
 git -C "$DOTFILES" pull --rebase
 git -C "$DOTFILES" submodule update --recursive
+success "Up to date"
 
 # Update Homebrew packages
-echo 'Updating Homebrew packages'
+step "Updating Homebrew packages..."
 brew update
 brew upgrade
 brew bundle --file "$DOTFILES/config/Brewfile"
 brew cleanup
+success "Updated"
 
 # Update global Composer packages
 if command -v composer &>/dev/null; then
-  echo 'Updating Composer global packages'
-  composer global update
+    step "Updating Composer global packages..."
+    composer global update
+    success "Updated"
 fi
 
 # Update global npm packages
 if command -v npm &>/dev/null; then
-  echo 'Updating npm global packages'
-  npm update -g
+    step "Updating npm global packages..."
+    npm update -g
+    success "Updated"
 fi
 
-echo ''
-echo 'Done! You may want to restart your terminal.'
+echo ""
+success "Done"
+detail "You may want to restart your terminal." true

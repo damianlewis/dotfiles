@@ -1,26 +1,38 @@
 #!/bin/bash
+# Apply preferred macOS system defaults
+set -e
 
-echo 'Applying macOS defaults...'
+SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")/.."
+source "$SCRIPT_DIR/lib/logging.sh"
 
-# Highlight hover effect for grid view of a stack in the Dock
+header "Applying macOS defaults"
+
+# Dock
+step "Configuring Dock..."
 defaults write com.apple.dock mouse-over-hilite-stack -bool true && killall Dock
+success "Dock hover effect enabled"
 
-# Expand save panel by default
+# Save & Print panels
+step "Configuring save and print panels..."
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
-
-# Expand print panel by default
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+success "Panels expanded by default"
 
-# Save to disk (not iCloud) by default
+# iCloud
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+success_with_note "Save to disk by default" "not iCloud"
 
-# Avoid creating .DS_Store files on network or USB volumes
+# .DS_Store
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+success ".DS_Store disabled on network and USB volumes"
 
-# Prevent Time Machine from prompting to use new hard drives as backup volume
+# Time Machine
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+success "Time Machine new disk prompts disabled"
 
-echo 'Done! Some changes may require a restart to take effect.'
+echo ""
+success "Done"
+detail "Some changes may require a restart to take effect." true

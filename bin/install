@@ -1,66 +1,92 @@
 #!/bin/bash
+# Install and configure dotfiles for a fresh macOS setup
+set -e
 
-echo 'Setting up your Mac...'
+SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")/.."
+source "$SCRIPT_DIR/lib/logging.sh"
 
 CODE="$HOME/Code"
 DOTFILES="$CODE/config/dotfiles"
 
+header "Setting up your Mac"
+
 # Create folders
-echo 'Creating folders'
 mkdir -p "$CODE"
 
 # Check for Homebrew and install if we don't have it
 if ! command -v brew &>/dev/null; then
-  echo 'Installing Homebrew'
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    step "Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-  grep -q 'brew shellenv' "$HOME/.zprofile" 2>/dev/null || echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.zprofile"
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-  brew analytics off
+    grep -q 'brew shellenv' "$HOME/.zprofile" 2>/dev/null || echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>"$HOME/.zprofile"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    brew analytics off
+    success "Installed"
+else
+    skip_with_note "Homebrew" "already installed"
 fi
 
 # Check for Oh My Zsh and install if we don't have it
 if [[ ! -d "$HOME/.oh-my-zsh/" ]]; then
-  echo 'Installing Oh My Zsh'
-  /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    step "Installing Oh My Zsh..."
+    /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    success "Installed"
+else
+    skip_with_note "Oh My Zsh" "already installed"
 fi
 
-# Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
+# Symlink shell config
 rm -f "$HOME/.zshrc"
 ln -swf "$DOTFILES/shell/.zshrc" "$HOME/.zshrc"
+success_with_note ".zshrc" "symlinked"
 
-# Install dependencies with Homebrew bundle (See Brewfile)
-echo 'Installing dependencies from Homebrew bundle'
+# Install dependencies with Homebrew bundle
+step "Installing Homebrew dependencies..."
 brew update
 brew bundle --file "$DOTFILES/config/Brewfile"
+success "Installed"
 
 # Symlink the global git files
 mkdir -p "$HOME/.config/git"
 ln -swf "$DOTFILES/config/git/config" "$HOME/.gitconfig"
 ln -swf "$DOTFILES/config/git/ignore" "$HOME/.config/git/ignore"
+success_with_note ".gitconfig" "symlinked"
+success_with_note ".config/git/ignore" "symlinked"
 
 # Symlink the Mackup config file to the home directory
-#ln -swf "$DOTFILES/config/.mackup.cfg" "$HOME/.mackup.cfg" # Not using Mackup until https://github.com/lra/mackup?tab=readme-ov-file#warning is resolved
-# mackup restore
+# Not using Mackup until https://github.com/lra/mackup?tab=readme-ov-file#warning is resolved
+#ln -swf "$DOTFILES/config/.mackup.cfg" "$HOME/.mackup.cfg"
+#success_with_note ".mackup.cfg" "symlinked"
+#mackup restore
 
 # Optionally set up SSH key for GitHub
 echo ""
 read -p "Set up SSH key for GitHub? (y/n) " -n 1 -r
 echo ""
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-  read -p "Enter your email: " email
-  source "$DOTFILES/bin/setup-ssh" "$email"
+    source "$DOTFILES/bin/setup-ssh"
 fi
 
 # Initialise submodules (requires SSH)
-echo 'Initialising submodules'
+step "Initialising submodules..."
 git -C "$DOTFILES" submodule update --init --recursive
+success "Initialised"
+
+# Set up Claude Code config if cloned
+if [[ -f "$CODE/config/dotclaude/bin/install" ]]; then
+    source "$CODE/config/dotclaude/bin/install"
+else
+    skip_with_note "Claude Code config" "not found"
+fi
 
 # Optionally run work setup
 echo ""
 read -p "Run work setup? (y/n) " -n 1 -r
 echo ""
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-  source "$DOTFILES/work/setup.sh"
+    source "$DOTFILES/work/bin/setup"
 fi
 
+echo ""
+success "Done"
+detail "You may want to restart your terminal." true
