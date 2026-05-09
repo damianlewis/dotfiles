@@ -50,8 +50,10 @@ success "Installed"
 mkdir -p "$HOME/.config/git"
 ln -swf "$DOTFILES/config/git/config" "$HOME/.gitconfig"
 ln -swf "$DOTFILES/config/git/ignore" "$HOME/.config/git/ignore"
+ln -swf "$DOTFILES/config/git/hooks" "$HOME/.config/git/hooks"
 success_with_note ".gitconfig" "symlinked"
 success_with_note ".config/git/ignore" "symlinked"
+success_with_note ".config/git/hooks" "symlinked"
 
 # Symlink the Mackup config file to the home directory
 # Not using Mackup until https://github.com/lra/mackup?tab=readme-ov-file#warning is resolved
