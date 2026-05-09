@@ -80,12 +80,24 @@ if [[ ! -d "$CODE/config/dotclaude" ]]; then
 else
     skip_with_note "dotclaude" "already cloned"
 fi
+if [[ ! -d "$CODE/config/dotwarp" ]]; then
+    git clone git@github.com:damianlewis/dotwarp.git "$CODE/config/dotwarp"
+else
+    skip_with_note "dotwarp" "already cloned"
+fi
 
 # Set up Claude Code config
 if [[ -f "$CODE/config/dotclaude/bin/install" ]]; then
     source "$CODE/config/dotclaude/bin/install"
 else
     skip_with_note "Claude Code config" "not found"
+fi
+
+# Set up Warp config
+if [[ -f "$CODE/config/dotwarp/bin/install" ]]; then
+    source "$CODE/config/dotwarp/bin/install"
+else
+    skip_with_note "Warp config" "not found"
 fi
 
 # Optionally run work setup
