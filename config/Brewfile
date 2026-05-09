@@ -6,6 +6,7 @@ brew 'fd'
 brew 'fzf'
 brew 'gh'
 brew 'git-delta'
+brew 'gitleaks'
 brew 'jq'
 # brew 'mackup' # Disabled until https://github.com/lra/mackup?tab=readme-ov-file#warning is resolved
 brew 'mas'
