@@ -1,0 +1,12 @@
+#!/bin/bash
+# Global pre-commit hook (configured via core.hooksPath).
+# Scans staged changes for secrets, then chains to the repo's local hook if present.
+
+if command -v gitleaks &>/dev/null; then
+    gitleaks protect --staged --redact --no-banner || exit 1
+fi
+
+local_hook="$(git rev-parse --git-dir)/hooks/pre-commit"
+if [[ -x "$local_hook" ]]; then
+    exec "$local_hook" "$@"
+fi
