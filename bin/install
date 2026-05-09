@@ -72,7 +72,16 @@ step "Initialising submodules..."
 git -C "$DOTFILES" submodule update --init --recursive
 success "Initialised"
 
-# Set up Claude Code config if cloned
+# Clone config repos
+step "Setting up config repos..."
+mkdir -p "$CODE/config"
+if [[ ! -d "$CODE/config/dotclaude" ]]; then
+    git clone git@github.com:damianlewis/dotclaude.git "$CODE/config/dotclaude"
+else
+    skip_with_note "dotclaude" "already cloned"
+fi
+
+# Set up Claude Code config
 if [[ -f "$CODE/config/dotclaude/bin/install" ]]; then
     source "$CODE/config/dotclaude/bin/install"
 else
