@@ -82,6 +82,11 @@ if [[ ! -d "$CODE/config/dotclaude" ]]; then
 else
     skip_with_note "dotclaude" "already cloned"
 fi
+if [[ ! -d "$CODE/config/dotopencode" ]]; then
+    git clone git@github.com:damianlewis/dotopencode.git "$CODE/config/dotopencode"
+else
+    skip_with_note "dotopencode" "already cloned"
+fi
 if [[ ! -d "$CODE/config/dotwarp" ]]; then
     git clone git@github.com:damianlewis/dotwarp.git "$CODE/config/dotwarp"
 else
@@ -93,6 +98,13 @@ if [[ -f "$CODE/config/dotclaude/bin/install" ]]; then
     source "$CODE/config/dotclaude/bin/install"
 else
     skip_with_note "Claude Code config" "not found"
+fi
+
+# Set up opencode config
+if [[ -f "$CODE/config/dotopencode/bin/install" ]]; then
+    source "$CODE/config/dotopencode/bin/install"
+else
+    skip_with_note "opencode config" "not found"
 fi
 
 # Set up Warp config
