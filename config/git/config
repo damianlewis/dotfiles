@@ -33,6 +33,24 @@
 	navigate = true
 	side-by-side = true
 	line-numbers = true
+	syntax-theme = Monokai Extended Bright
+
+	; Monokai-aligned diff chrome
+	minus-style = syntax "#3f1d1d"
+	minus-emph-style = syntax "#5c2828"
+	plus-style = syntax "#1d3f1d"
+	plus-emph-style = syntax "#28572b"
+
+	file-style = "#fd971f" bold
+	file-decoration-style = "#fd971f" ul
+	hunk-header-style = "#66d9ef" bold
+	hunk-header-decoration-style = "#66d9ef" box
+
+	line-numbers-minus-style = "#f92672"
+	line-numbers-plus-style = "#a6e22e"
+	line-numbers-zero-style = "#75715e"
+	line-numbers-left-style = "#75715e"
+	line-numbers-right-style = "#75715e"
 [diff]
 	algorithm = histogram
 	colorMoved = plain
