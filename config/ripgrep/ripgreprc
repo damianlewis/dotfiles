@@ -1,0 +1,17 @@
+# ripgrep configuration — one flag per line.
+# Activated via RIPGREP_CONFIG_PATH (set in shell/.zshrc).
+
+# Case-sensitive only when pattern contains uppercase
+--smart-case
+
+# Cap absurdly long lines (e.g. minified bundles) instead of dumping the whole line
+--max-columns=200
+--max-columns-preview
+
+# Follow symlinks
+--follow
+
+# Useful custom type aliases
+--type-add=web:*.{html,css,scss,js,jsx,ts,tsx,vue,svelte}
+--type-add=php:*.{php,blade.php}
+--type-add=laravel:*.{php,blade.php,env,env.example}

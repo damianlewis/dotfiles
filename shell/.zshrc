@@ -7,6 +7,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # eza — explicit config dir so theme.yml is loaded (eza does not auto-detect)
 export EZA_CONFIG_DIR="$HOME/.config/eza"
 
+# ripgrep — point at its config file
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
+
 # Theme
 export SPACESHIP_CONFIG="$DOTFILES/config/spaceship.zsh"
 
