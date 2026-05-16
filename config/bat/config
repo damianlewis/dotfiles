@@ -1,0 +1,7 @@
+# bat configuration
+# One flag per line; same syntax as the CLI.
+
+--theme="Monokai Extended Bright"
+--style="numbers,changes,header"
+--map-syntax="*.conf:INI"
+--map-syntax=".env*:Bash"
