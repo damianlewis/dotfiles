@@ -55,6 +55,11 @@ success_with_note ".gitconfig" "symlinked"
 success_with_note ".config/git/ignore" "symlinked"
 success_with_note ".config/git/hooks" "symlinked"
 
+# Symlink the eza theme
+mkdir -p "$HOME/.config/eza"
+ln -swf "$DOTFILES/config/eza/theme.yml" "$HOME/.config/eza/theme.yml"
+success_with_note ".config/eza/theme.yml" "symlinked"
+
 # Symlink the Mackup config file to the home directory
 # Not using Mackup until https://github.com/lra/mackup?tab=readme-ov-file#warning is resolved
 #ln -swf "$DOTFILES/config/.mackup.cfg" "$HOME/.mackup.cfg"
