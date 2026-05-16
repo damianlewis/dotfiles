@@ -6,7 +6,7 @@ SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")/.."
 source "$SCRIPT_DIR/lib/logging.sh"
 
 CODE="$HOME/Code"
-DOTFILES="$CODE/config/dotfiles"
+DOTFILES="$CODE/config/global/dotfiles"
 
 header "Setting up your Mac"
 
@@ -76,40 +76,40 @@ success "Initialised"
 
 # Clone config repos
 step "Setting up config repos..."
-mkdir -p "$CODE/config"
-if [[ ! -d "$CODE/config/dotclaude" ]]; then
-    git clone git@github.com:damianlewis/dotclaude.git "$CODE/config/dotclaude"
+mkdir -p "$CODE/config/global"
+if [[ ! -d "$CODE/config/global/claude" ]]; then
+    git clone git@github.com:damianlewis/dotclaude.git "$CODE/config/global/claude"
 else
-    skip_with_note "dotclaude" "already cloned"
+    skip_with_note "claude config" "already cloned"
 fi
-if [[ ! -d "$CODE/config/dotopencode" ]]; then
-    git clone git@github.com:damianlewis/dotopencode.git "$CODE/config/dotopencode"
+if [[ ! -d "$CODE/config/global/opencode" ]]; then
+    git clone git@github.com:damianlewis/dotopencode.git "$CODE/config/global/opencode"
 else
-    skip_with_note "dotopencode" "already cloned"
+    skip_with_note "opencode config" "already cloned"
 fi
-if [[ ! -d "$CODE/config/dotwarp" ]]; then
-    git clone git@github.com:damianlewis/dotwarp.git "$CODE/config/dotwarp"
+if [[ ! -d "$CODE/config/global/warp" ]]; then
+    git clone git@github.com:damianlewis/dotwarp.git "$CODE/config/global/warp"
 else
-    skip_with_note "dotwarp" "already cloned"
+    skip_with_note "warp config" "already cloned"
 fi
 
 # Set up Claude Code config
-if [[ -f "$CODE/config/dotclaude/bin/install" ]]; then
-    source "$CODE/config/dotclaude/bin/install"
+if [[ -f "$CODE/config/global/claude/bin/install" ]]; then
+    source "$CODE/config/global/claude/bin/install"
 else
     skip_with_note "Claude Code config" "not found"
 fi
 
 # Set up opencode config
-if [[ -f "$CODE/config/dotopencode/bin/install" ]]; then
-    source "$CODE/config/dotopencode/bin/install"
+if [[ -f "$CODE/config/global/opencode/bin/install" ]]; then
+    source "$CODE/config/global/opencode/bin/install"
 else
     skip_with_note "opencode config" "not found"
 fi
 
 # Set up Warp config
-if [[ -f "$CODE/config/dotwarp/bin/install" ]]; then
-    source "$CODE/config/dotwarp/bin/install"
+if [[ -f "$CODE/config/global/warp/bin/install" ]]; then
+    source "$CODE/config/global/warp/bin/install"
 else
     skip_with_note "Warp config" "not found"
 fi

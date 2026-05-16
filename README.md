@@ -40,13 +40,13 @@ Cleanly install macOS with the latest release.
 2. Clone this repo:
 
     ```sh
-    git clone https://github.com/damianlewis/dotfiles.git ~/Code/config/dotfiles
+    git clone https://github.com/damianlewis/dotfiles.git ~/Code/config/global/dotfiles
     ```
 
 3. Run the install script:
 
     ```sh
-    cd ~/Code/config/dotfiles && ./bin/install
+    cd ~/Code/config/global/dotfiles && ./bin/install
     ```
 
 4. Start `Herd.app` and run its install process
@@ -64,7 +64,7 @@ dotup
 Or re-run the install script:
 
 ```sh
-cd ~/Code/config/dotfiles && ./bin/install
+cd ~/Code/config/global/dotfiles && ./bin/install
 ```
 
 Symlinks are created with force (`-swf`), so re-running is safe.

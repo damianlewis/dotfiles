@@ -1,8 +1,11 @@
 # Path to your dotfiles.
-export DOTFILES="$HOME/Code/config/dotfiles"
+export DOTFILES="$HOME/Code/config/global/dotfiles"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+# eza — explicit config dir so theme.yml is loaded (eza does not auto-detect)
+export EZA_CONFIG_DIR="$HOME/.config/eza"
 
 # Theme
 export SPACESHIP_CONFIG="$DOTFILES/config/spaceship.zsh"
