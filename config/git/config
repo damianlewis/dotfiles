@@ -59,6 +59,6 @@
 [gtr]
 	defaultBranch = main
 [gtr "worktrees"]
-	dir = ~/Worktrees
+	dir = ~/Code/worktrees
 [gtr "ai"]
 	default = claude
