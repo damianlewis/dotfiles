@@ -70,6 +70,10 @@ mkdir -p "$HOME/.config/ripgrep"
 ln -shwf "$DOTFILES/config/ripgrep/ripgreprc" "$HOME/.config/ripgrep/ripgreprc"
 success_with_note ".config/ripgrep/ripgreprc" "symlinked"
 
+# Symlink the ~/Code README
+ln -shwf "$DOTFILES/config/code-readme.md" "$CODE/README.md"
+success_with_note "Code/README.md" "symlinked"
+
 # Symlink the Mackup config file to the home directory
 # Not using Mackup until https://github.com/lra/mackup?tab=readme-ov-file#warning is resolved
 #ln -shwf "$DOTFILES/config/.mackup.cfg" "$HOME/.mackup.cfg"

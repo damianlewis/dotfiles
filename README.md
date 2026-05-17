@@ -22,6 +22,7 @@ Configuration and setup scripts for a fresh macOS installation.
 | `config/eza/`          | eza theme (Tokyo Night)                                    |
 | `config/ripgrep/`      | ripgrep defaults (smart-case, type aliases)                |
 | `config/ghostty/`      | Ghostty terminal config                                    |
+| `config/code-readme.md`| Orientation README symlinked to `~/Code/README.md`         |
 | `config/spaceship.zsh` | Spaceship prompt configuration                             |
 | `docs/`                | Manual setup guides (macOS preferences)                    |
 | `work/`                | Work-specific setup (private submodule)                    |
