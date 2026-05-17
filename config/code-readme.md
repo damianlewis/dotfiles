@@ -22,7 +22,7 @@ internal structure described below.
 
 ## Layout at a glance
 
-```text
+```
 ~/Code/
 ├── work/
 │   ├── <client>/
@@ -64,7 +64,7 @@ Inside both `work/<client>/` and `reference/<ecosystem>/`, runnable
 applications go in `apps/`, everything else (libraries, asset
 bundles, scripts) goes in `packages/`.
 
-```text
+```
 work/brand-iq/apps/admin/        ← Laravel app (Herd-served)
 work/brand-iq/packages/icons/    ← supporting library
 ```
