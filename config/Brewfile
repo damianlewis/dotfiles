@@ -26,8 +26,9 @@ brew 'gifsicle'
 brew 'libavif'
 
 # Apps
-cask '1password'
-cask 'adobe-creative-cloud'
+# Inline comments flag the license model for casks that need payment to use beyond install.
+cask '1password'              # subscription required
+cask 'adobe-creative-cloud'   # launcher only; apps require Creative Cloud subscription
 cask 'chatgpt'
 cask 'claude'
 cask 'discord'
@@ -38,9 +39,9 @@ cask 'firefox'
 cask 'ghostty'
 cask 'github'
 cask 'google-chrome'
-cask 'herd'
+cask 'herd'                   # free tier; Pro requires subscription
 cask 'iina'
-cask 'jetbrains-toolbox'
+cask 'jetbrains-toolbox'      # launcher free; each IDE requires its own license
 cask 'logi-options+'
 cask 'microsoft-edge'
 cask 'microsoft-teams'
@@ -49,21 +50,21 @@ cask 'notion-calendar'
 cask 'notion-mail'
 cask 'opencode-desktop'
 cask 'opera'
-cask 'plexamp'
+cask 'plexamp'                # requires Plex Pass
 cask 'postman'
 cask 'raycast'
-cask 'readdle-spark'
-cask 'runjs'
-cask 'setapp'
+cask 'readdle-spark'          # free tier limited; Premium requires subscription
+cask 'runjs'                  # paid; has trial
+cask 'setapp'                 # subscription required to use any bundled app
 cask 'spotify'
 cask 'thebrowsercompany-dia'
-cask 'tinkerwell'
+cask 'tinkerwell'             # paid; has trial
 cask 'visual-studio-code'
 cask 'warp'
 cask 'wispr-flow'
 
 # QuickLook Plugins
-cask 'betterzip'
+cask 'betterzip'              # QL extension free; full app paid (we only use the QL)
 cask 'qlmarkdown'
 cask 'qlstephen'
 cask 'quicklook-csv'
