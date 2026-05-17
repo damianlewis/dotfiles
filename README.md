@@ -4,22 +4,27 @@ Configuration and setup scripts for a fresh macOS installation.
 
 ## What's included
 
-| Path                  | Purpose                                          |
-|-----------------------|--------------------------------------------------|
-| `bin/install`         | Main setup script                                |
-| `bin/update`          | Update dotfiles, Homebrew, and global packages   |
-| `bin/setup-ssh`       | SSH key setup for GitHub                         |
-| `bin/macos-defaults`  | Apply preferred macOS system defaults            |
-| `lib/`                | Shared logging and style utilities               |
-| `shell/.zshrc`        | Zsh configuration (plugins, theme, editor)       |
-| `shell/aliases.zsh`   | Shell aliases (auto-loaded by Oh My Zsh)         |
-| `shell/path.zsh`      | `$PATH` modifications (auto-loaded by Oh My Zsh) |
-| `shell/functions.zsh` | Shell functions (auto-loaded by Oh My Zsh)       |
-| `config/Brewfile`     | Homebrew packages, casks, and Mac App Store apps |
-| `config/git/`         | Git configuration and global gitignore           |
-| `config/spaceship.zsh`| Spaceship prompt configuration                   |
-| `docs/`               | Manual setup guides (macOS preferences)          |
-| `work/`               | Work-specific setup (private submodule)          |
+| Path                   | Purpose                                                    |
+|------------------------|------------------------------------------------------------|
+| `bin/install`          | Main setup script                                          |
+| `bin/update`           | Update dotfiles, Homebrew, and global packages             |
+| `bin/setup-ssh`        | SSH key setup for GitHub                                   |
+| `bin/macos-defaults`   | Apply preferred macOS system defaults                      |
+| `lib/`                 | Shared logging and style utilities                         |
+| `shell/.zshrc`         | Zsh configuration (plugins, theme, editor)                 |
+| `shell/aliases.zsh`    | Shell aliases (auto-loaded by Oh My Zsh)                   |
+| `shell/path.zsh`       | `$PATH` modifications (auto-loaded by Oh My Zsh)           |
+| `shell/functions.zsh`  | Shell functions (auto-loaded by Oh My Zsh)                 |
+| `shell/fzf.zsh`        | fzf defaults and Tokyo Night palette (auto-loaded)         |
+| `config/Brewfile`      | Homebrew packages, casks, and Mac App Store apps           |
+| `config/git/`          | Git configuration, global gitignore, and pre-commit hooks  |
+| `config/bat/`          | bat config (Monokai Extended Bright theme)                 |
+| `config/eza/`          | eza theme (Tokyo Night)                                    |
+| `config/ripgrep/`      | ripgrep defaults (smart-case, type aliases)                |
+| `config/ghostty/`      | Ghostty terminal config                                    |
+| `config/spaceship.zsh` | Spaceship prompt configuration                             |
+| `docs/`                | Manual setup guides (macOS preferences)                    |
+| `work/`                | Work-specific setup (private submodule)                    |
 
 ## Setup
 
