@@ -33,6 +33,20 @@ success ".DS_Store disabled on network and USB volumes"
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 success "Time Machine new disk prompts disabled"
 
+# Archive file associations — override hijackers (BetterZip etc.)
+# Quick Look extension stays registered independently, so previews still work.
+if command -v duti &>/dev/null; then
+    step "Resetting archive file associations to Archive Utility..."
+    duti -s com.apple.archiveutility public.zip-archive all
+    duti -s com.apple.archiveutility public.tar-archive all
+    duti -s com.apple.archiveutility org.gnu.gnu-zip-archive all
+    duti -s com.apple.archiveutility org.7-zip.7-zip-archive all
+    duti -s com.apple.archiveutility com.rarlab.rar-archive all
+    success "Archive file associations reset"
+else
+    skip_with_note "Archive file associations" "duti not installed — run 'brew install duti'"
+fi
+
 echo ""
 success "Done"
 detail "Some changes may require a restart to take effect." true
