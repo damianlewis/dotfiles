@@ -6,7 +6,7 @@ SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")/.."
 source "$SCRIPT_DIR/lib/logging.sh"
 
 CODE="$HOME/Code"
-DOTFILES="$CODE/config/dotfiles"
+DOTFILES="$CODE/config/global/dotfiles"
 
 header "Updating dotfiles"
 
